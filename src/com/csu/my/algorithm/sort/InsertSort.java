@@ -17,6 +17,42 @@ public class InsertSort {
         
     }
     
+    /**
+     * 插入排序
+     * @param arr
+     */
+    public static void insertSort(int[] arr) {
+        
+        // 第0张牌，默认是有序的，所以从第一张牌开始
+        for(int i = 1; i < arr.length; i++) {
+            
+            // 将牌抽取出来保存到一个临时变量里面
+            int extract = arr[i];
+            int flag = i;
+            
+            // 将抽取出来的牌，与前面的牌进行比较
+            for(int j = i -1; j >= 0; j--) {
+                
+                // 如果当前的牌比抽取出来的牌大，那么就将这张牌向后移动
+                // 同时将抽取出来的牌插入的位置标记设置为j
+                if(arr[j] > extract) {
+                    arr[j + 1] = arr[j];
+                    flag = j;
+                // 如果当前的牌比抽取出来的牌小
+                // 那么将抽取出来的牌插入到当前的后面
+                // 即flag = j + 1
+                }else {
+                    flag = j + 1;
+                    break;
+                }
+                
+                arr[flag] = extract;
+            }
+            
+        }
+        
+    }
+    
 //    public static void insertSort(int[] arr) {
 //        /**
 //         * 第0张牌默认是有序的
@@ -40,31 +76,31 @@ public class InsertSort {
 //        }
 //    }
 
-      public static void insertSort(int[] arr) {
-          // 第0张牌默认是有序了，所以从第一张牌开始
-          for(int i = 1; i < arr.length; i++) {
-              // 首先出去出第一张牌
-              int extract = arr[i];
-              
-              // 标记插牌的位置
-              int flag = i;
-              
-              for(int j = i-1; j >= 0; j--) {
-                  // 如果抽取出来的牌比前面的牌小，就将前面的牌后移
-                  if(extract < arr[j]) {
-                      arr[j+1] = arr[j];
-                      // arr[j] = extract;
-                      flag = j;
-                  }else {
-                      flag = j + 1;
-                      // 如果抽取出来的牌比前面的牌大，就将取出来的牌插到前面牌的后面
-                      break;
-                  }
-              }
-              
-              arr[flag] = extract;              
-          }
-          
-      }
+//      public static void insertSort(int[] arr) {
+//          // 第0张牌默认是有序了，所以从第一张牌开始
+//          for(int i = 1; i < arr.length; i++) {
+//              // 首先出去出第一张牌
+//              int extract = arr[i];
+//              
+//              // 标记插牌的位置
+//              int flag = i;
+//              
+//              for(int j = i-1; j >= 0; j--) {
+//                  // 如果抽取出来的牌比前面的牌小，就将前面的牌后移
+//                  if(extract < arr[j]) {
+//                      arr[j+1] = arr[j];
+//                      // arr[j] = extract;
+//                      flag = j;
+//                  }else {
+//                      flag = j + 1;
+//                      // 如果抽取出来的牌比前面的牌大，就将取出来的牌插到前面牌的后面
+//                      break;
+//                  }
+//              }
+//              
+//              arr[flag] = extract;              
+//          }
+//          
+//      }
     
 }

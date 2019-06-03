@@ -2,7 +2,7 @@ package com.csu.my.algorithm.sort;
 
 /**
  * 选择排序
- * 1、从一次遍历面里面选择出最小的一个值，然后与起始的遍历的那个位置进行交换。
+ * 算法思想：从一次遍历面里面选择出最小的一个值，然后与起始的遍历的那个位置进行交换。
  * 时间复杂度  O(n^2) 排序时间与初始顺序无关，即使初始已经排好了，也要耗费O(N^2)的时间复杂度
  * 空间复杂度 O(1)
  * 
@@ -18,6 +18,28 @@ public class SelectSort {
             System.out.print(arr[i] + " ");
         }
     }
+    
+    /**
+     * 时间复杂度O(n^2)
+     * @param arr
+     */
+    public static void selectSort(int[] arr) {
+        for(int i = 0; i < arr.length - 1; i++) {
+            int min = i;
+            
+            for(int j = i + 1;j < arr.length; j++) {
+                if(arr[min] > arr[j]) {
+                    min = j;
+                }
+            }
+            
+            // 将最小值与i进行交换
+            int temp = arr[i];
+            arr[i] = arr[min];
+            arr[min] = temp;
+        }
+    }
+    
     
 //    public static void selectSort(int[] arr) {
 //        for(int i = 0; i < arr.length - 1; i++) {
@@ -71,21 +93,21 @@ public class SelectSort {
 //    }
 //    
     
-    public static void selectSort(int[] arr) {
-        for(int i = 0; i < arr.length - 1; i++) {
-            int min = i;
-            for(int j = i + 1;j < arr.length; j++) {
-                if(arr[j] < arr[min]) {
-                    min = j;
-                }
-            }
-            
-            int temp = arr[i];
-            arr[i] = arr[min];
-            arr[min] = temp;
-            
-        }
-    }
+//    public static void selectSort(int[] arr) {
+//        for(int i = 0; i < arr.length - 1; i++) {
+//            int min = i;
+//            for(int j = i + 1;j < arr.length; j++) {
+//                if(arr[j] < arr[min]) {
+//                    min = j;
+//                }
+//            }
+//            
+//            int temp = arr[i];
+//            arr[i] = arr[min];
+//            arr[min] = temp;
+//            
+//        }
+//    }
     
     
     

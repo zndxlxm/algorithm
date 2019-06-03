@@ -2,6 +2,7 @@ package com.csu.my.algorithm.sort;
 
 /**
  * 冒泡排序
+ * 排序思想：每次选择出最大的值飘到数组的尾部，就像冒泡一样。
  * 1、时间复杂度  最好的情况   最坏的情况
  *               O（N）         O(N^2)
  * 2、空间复杂度   O(1)
@@ -18,6 +19,28 @@ public class BubbleSort {
         }
         
     }
+    
+    
+    public static void bubbleSort(int arr[]) {
+        boolean isNeedExchange = true;
+        
+        for(int i = 0; i < arr.length - 1 && isNeedExchange==true; i++) {
+            for(int j = 0;j < arr.length - i - 1;j++) {
+                
+                isNeedExchange = false;
+                
+                if(arr[j] > arr[j+1]) {
+                    // 交换数字位置
+                    int temp = arr[j];
+                    arr[j] = arr[j+1];
+                    arr[j+1] = temp;
+                    
+                    isNeedExchange = true;
+                }
+            }
+        }
+    }
+    
     
 //    public static void bubbleSort(int[] arr) {
 //        // 是否需要继续交换
@@ -116,20 +139,20 @@ public class BubbleSort {
 //        }
 //    }
     
-    public static void bubbleSort(int[] arr) {
-        boolean isNeedExchange = true;
-        for(int i=0; i < arr.length-1 && isNeedExchange == true; i++) {
-            isNeedExchange = false;
-            for(int j = 0; j < arr.length - i - 1; j++) {
-                if(arr[j] > arr[j+1]) {
-                    int temp = arr[j+1];
-                    arr[j + 1] = arr[j];
-                    arr[j] = temp;
-                    isNeedExchange = true;
-                }
-            }
-        }
-        
-    }
+//    public static void bubbleSort(int[] arr) {
+//        boolean isNeedExchange = true;
+//        for(int i=0; i < arr.length-1 && isNeedExchange == true; i++) {
+//            isNeedExchange = false;
+//            for(int j = 0; j < arr.length - i - 1; j++) {
+//                if(arr[j] > arr[j+1]) {
+//                    int temp = arr[j+1];
+//                    arr[j + 1] = arr[j];
+//                    arr[j] = temp;
+//                    isNeedExchange = true;
+//                }
+//            }
+//        }
+//        
+//    }
     
 }
